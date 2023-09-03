@@ -5,6 +5,9 @@ import Form from './Form';
 const Daily = () => {
   const [addBtnClicked, setAddBtnClicked] = useState(false);
   const handleClick = () => setAddBtnClicked(!addBtnClicked);
+  const displayFormWindow = (state) => {
+    setAddBtnClicked(state);
+  };
 
   return (
     <section>
@@ -18,7 +21,7 @@ const Daily = () => {
         <AddIcon />{' '}
       </button>
 
-      {addBtnClicked && <Form />}
+      {addBtnClicked && <Form displayFormWindow={displayFormWindow} />}
     </section>
   );
 };

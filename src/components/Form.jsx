@@ -4,8 +4,10 @@ import Expenses from '../Form/Expenses';
 import Gross from '../Form/Gross';
 import errors from '../javascript/formErrors';
 import originalFormState from '../javascript/formStateReset';
+import { getTodayDate } from '../javascript/date';
+import { database, ref, push } from '../../firebasae';
 
-const Form = () => {
+const Form = ({ removeFormWindow: displayFormWindow }) => {
   const [formData, setFormData] = useState(originalFormState);
   const [formErrors, setFormErrors] = useState(originalFormState);
 
@@ -35,8 +37,8 @@ const Form = () => {
     });
 
     if (filtered.length !== 0) return;
-
-    setFormData(originalFormState);
+    push(ref(database, `balance-beam/${getTodayDate()}`), formData);
+    displayFormWindow(false);
   };
 
   return (
