@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import EuroIcon from './svgs/EuroIcon';
 import Daily from './components/Daily';
 import Weekly from './components/Weekly';
 import Monthly from './components/Monthly';
 
 import animationPattern from './javascript/animations';
+import { onValue, ref, database } from '../firebasae';
 
 function App() {
   const [currentWindow, setCurrentWindow] = useState('daily');
@@ -15,6 +16,16 @@ function App() {
       return e.target.name;
     });
   };
+
+  const [data, setData] = useState({});
+  useEffect(() => {
+    onValue(ref(database, 'balance-beam'), (snapshot) => {
+      if (snapshot.exists()) {
+        const dataRetrieved = snapshot.val() || {};
+        setData(dataRetrieved);
+      }
+    });
+  }, []);
 
   return (
     <>
@@ -62,9 +73,9 @@ function App() {
           </div>
         </div>
 
-        {currentWindow === 'daily' && <Daily />}
-        {currentWindow === 'weekly' && <Weekly />}
-        {currentWindow === 'monthly' && <Monthly />}
+        {currentWindow === 'daily' && <Daily data={data} />}
+        {currentWindow === 'weekly' && <Weekly data={data} />}
+        {currentWindow === 'monthly' && <Monthly data={data} />}
       </main>
     </>
   );

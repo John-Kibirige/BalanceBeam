@@ -7,7 +7,7 @@ import originalFormState from '../javascript/formStateReset';
 import { getTodayDate } from '../javascript/date';
 import { database, ref, push } from '../../firebasae';
 
-const Form = ({ removeFormWindow: displayFormWindow }) => {
+const Form = ({ displayFormWindow }) => {
   const [formData, setFormData] = useState(originalFormState);
   const [formErrors, setFormErrors] = useState(originalFormState);
 
@@ -27,7 +27,9 @@ const Form = ({ removeFormWindow: displayFormWindow }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const filtered = Object.entries(formData).filter((elem) => elem[1] === '');
+    const filtered = Object.entries(formData).filter(
+      (elem) => elem[1].trim() === ''
+    );
 
     filtered.forEach((elem) => {
       setFormErrors((prev) => ({
@@ -43,7 +45,7 @@ const Form = ({ removeFormWindow: displayFormWindow }) => {
 
   return (
     <form
-      className="font-roboto shadow-lg w-[95%] mx-auto bg-pink rounded-lg pb-2 mt-3"
+      className="font-roboto shadow-lg w-[95%] mx-auto bg-pink rounded-lg pb-2 mt-2"
       onSubmit={handleSubmit}
     >
       <div className="article">
