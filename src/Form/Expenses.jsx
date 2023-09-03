@@ -1,51 +1,66 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const Expenses = () => {
-  const [expensesData, setExpensesData] = useState({
-    shopping: '',
-    wages: '',
-    utilities: '',
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setExpensesData((previousExpensesData) => {
-      return {
-        ...previousExpensesData,
-        [name]: value,
-      };
-    });
-  };
-
-  console.log('the expenses at the moment are ', expensesData);
-
+const Expenses = ({ handleChange, formData, formErrors }) => {
   return (
-    <div>
-      <input
-        type="text"
-        name="shopping"
-        onChange={handleChange}
-        className=" border"
-        placeholder="shopping (ugx)"
-        value={expensesData.shopping}
-      />
-      <input
-        type="text"
-        name="wages"
-        onChange={handleChange}
-        className=" border"
-        placeholder="wages (ugx)"
-        value={expensesData.wages}
-      />
-      <input
-        type="text"
-        name="utilities"
-        onChange={handleChange}
-        className=" border"
-        placeholder="utilities (ugx)"
-        value={expensesData.utilities}
-      />
-    </div>
+    <fieldset className="border  w-full px-2 mt-4 shadow-lg rounded-lg">
+      <legend className="text-sm text-blue-700 px-1">Expenses</legend>
+
+      <div className="expenses w- pt-4">
+        <div className="shopping flex justify-between gap-1">
+          <label htmlFor="shopping">Shopping: </label>
+          <input
+            type="text"
+            className="py-1 mb-3 focus:border-pink-800 focus:border-2 focus:outline-none focus:ring-0 border-pink-700"
+            placeholder="Shopping (ugx)"
+            id="shopping"
+            name="shopping"
+            value={formData.shopping}
+            onChange={handleChange}
+          />
+        </div>
+        {formErrors.shopping && (
+          <p className="error text-sm text-red-500 mb-1 mt-[-12px]">
+            {formErrors.shopping}
+          </p>
+        )}
+
+        <div className="wages flex justify-between">
+          <label htmlFor="wages">Wages: </label>
+          <input
+            type="text"
+            className="py-1 mb-3 focus:border-pink-800 focus:border-2 focus:outline-none focus:ring-0 border-pink-700"
+            placeholder="Wages (ugx)"
+            id="wages"
+            name="wages"
+            value={formData.wages}
+            onChange={handleChange}
+          />
+        </div>
+        {formErrors.wages && (
+          <p className="error text-sm text-red-500 mb-1 mt-[-12px]">
+            {formErrors.wages}
+          </p>
+        )}
+
+        <div className="utilities flex justify-between">
+          <label htmlFor="utilities">Utilities: </label>
+          <input
+            type="text"
+            className="py-1 mb-3 focus:border-pink-800 focus:border-2 focus:outline-none focus:ring-0 border-pink-700"
+            placeholder="Utilities (ugx)"
+            id="utilities"
+            name="utilities"
+            value={formData.utilities}
+            onChange={handleChange}
+          />
+        </div>
+        {formErrors.utilities && (
+          <p className="error text-sm text-red-500 mb-1 mt-[-12px] ">
+            {formErrors.utilities}
+          </p>
+        )}
+      </div>
+    </fieldset>
   );
 };
 

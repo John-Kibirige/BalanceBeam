@@ -7,8 +7,8 @@ import Monthly from './components/Monthly';
 import animationPattern from './javascript/animations';
 
 function App() {
-  const [currentWindow, setCurrentWindow] = useState('');
-  const [previousWindow, setPreviousWindow] = useState('');
+  const [currentWindow, setCurrentWindow] = useState('daily');
+  const [previousWindow, setPreviousWindow] = useState('daily');
   const handleClick = (e) => {
     setCurrentWindow((prevState) => {
       setPreviousWindow(prevState);
@@ -19,7 +19,7 @@ function App() {
   return (
     <>
       <main className="px-4 py-4 text-pink-800">
-        <div className="nav flex justify-between gap-2 items-center mb-5">
+        <div className="nav flex justify-between gap-2 items-center mb-5 font-poppins">
           <div className="buttons w-full relative shadow-md pb">
             <button
               className={`btn w-[33.33%] py-[6px] active:bg-pink-300 transition ease-in-out duration-200 tracking-wider  ${
