@@ -13,15 +13,11 @@ const popupSlice = createSlice({
       state.formDialog = !state.formDialog;
     },
 
-    showDeleteDialog: (state) => {
-      state.deleteDialog = true;
-    },
-    hideDeleteDialog: (state) => {
-      state.deleteDialog = false;
+    toggleDeleteDisplay: (state) => {
+      state.deleteDialog = !state.deleteDialog;
     },
   },
 });
 
-export const { toggleFormDisplay, showDeleteDialog, hideDeleteDialog } =
-  popupSlice.actions;
+export const { toggleFormDisplay, toggleDeleteDisplay } = popupSlice.actions;
 export default popupSlice;

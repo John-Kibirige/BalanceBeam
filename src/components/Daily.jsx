@@ -9,6 +9,7 @@ import { toggleFormDisplay } from '../redux/popup';
 
 const Daily = ({ data }) => {
   const { formDialog } = useSelector((st) => st.popup);
+  const { deleteDialog } = useSelector((st) => st.delete);
   const dispatch = useDispatch();
 
   const handleClick = () => {
@@ -30,8 +31,8 @@ const Daily = ({ data }) => {
       </button>
 
       {formDialog && <Form />}
-      {formDialog && (
-        <div className="popup w-screen bg-gray-400 opacity-60 absolute top-0 left-0 bottom-0 z-10 backdrop-blur-lg my-auto"></div>
+      {(formDialog || deleteDialog) && (
+        <div className="popup w-screen bg-gray-400 opacity-60 absolute top-0 left-0 bottom-0 z-10 backdrop-blur-lg mb-[-200%] transition ease-in-out duration-75"></div>
       )}
     </section>
   );

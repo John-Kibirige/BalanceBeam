@@ -8,7 +8,7 @@ import { parse } from 'postcss';
 const BusinessCard = ({ name, costs }) => {
   const [totalExpenses, totalGross] = getTotalExpensesAndGross(costs);
   return (
-    <div className=" mb-5 px-1 py-3 rounded-lg shadow-xl">
+    <div className=" mb-5 px-1 py-3 rounded-lg shadow-xl relative">
       <h3 className=" font-poppins text-cyan-700 font-semibold mb-1">{name}</h3>
       <table className=" font-roboto border border-pink-700 w-full">
         <thead>

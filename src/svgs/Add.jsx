@@ -1,9 +1,14 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 const AddIcon = () => {
+  const { deleteDialog } = useSelector((st) => st.delete);
+
   return (
     <svg
-      className="w-7 h-7 shadow-md absolute right-0 z-20 mr-4 active:scale-110 transition duration-75 -mt-6"
+      className={`w-7 h-7 shadow-md absolute right-0 mr-4 active:scale-110 transition duration-75 -mt-6 ${
+        !deleteDialog && 'z-20'
+      }`}
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

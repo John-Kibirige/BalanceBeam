@@ -1,27 +1,31 @@
 import React from 'react';
 import DeleteIcon from '../svgs/Delete';
-import { ref, remove, database } from '../../firebasae';
-import { getTodayDate } from '../javascript/date';
+import { useDispatch, useSelector } from 'react-redux';
+import { showDeleteDialog } from '../redux/delete';
+import DeleteDialog from './DeleteDialog';
 
 const ExpensesRow = ({ shopping, wages, utilities, gross, id }) => {
+  const dispatch = useDispatch();
   const handleDelete = () => {
-    const path = `balance-beam/${getTodayDate()}/${id}`;
-    const itemLocation = ref(database, path);
-    remove(itemLocation);
+    dispatch(showDeleteDialog(id));
   };
-
+  const { deleteDialog, itemToDelete } = useSelector((st) => st.delete);
   return (
-    <tr className=" border-b border-pink-700 text-pink-700">
-      <td className="px-1">{shopping}</td>
-      <td className="border-r border-l border-pink-700 px-1">{wages}</td>
-      <td className="border-r border-l border-pink-700 px-1">{utilities}</td>
-      <td className="border-r border-l border-pink-700 px-1">{gross}</td>
-      <td className=" flex justify-center items-center">
-        <button className="del" onClick={handleDelete}>
-          <DeleteIcon />
-        </button>
-      </td>
-    </tr>
+    <>
+      {' '}
+      <tr className=" border-b border-pink-700 text-pink-700">
+        <td className="px-1">{shopping}</td>
+        <td className="border-r border-l border-pink-700 px-1">{wages}</td>
+        <td className="border-r border-l border-pink-700 px-1">{utilities}</td>
+        <td className="border-r border-l border-pink-700 px-1">{gross}</td>
+        <td className=" flex justify-center items-center">
+          <button className="del" onClick={handleDelete}>
+            <DeleteIcon />
+          </button>
+        </td>
+      </tr>
+      {itemToDelete === id && deleteDialog && <DeleteDialog />}
+    </>
   );
 };
 
