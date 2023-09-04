@@ -14,9 +14,16 @@ const Daily = ({ data }) => {
 
   const handleClick = () => {
     dispatch(toggleFormDisplay());
+
+    setTimeout(() => {
+      const formElement = document.getElementById('form-id');
+      if (formElement) {
+        formElement.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 10);
   };
   return (
-    <section className={`${formDialog && 'pb-[600px]'}`}>
+    <section>
       <h1 className=" font-semibold text-lg text-center font-poppins mb-3">
         Today's balancing
       </h1>
@@ -32,7 +39,7 @@ const Daily = ({ data }) => {
 
       {formDialog && <Form />}
       {(formDialog || deleteDialog) && (
-        <div className="popup w-screen bg-gray-400 opacity-60 absolute top-0 left-0 bottom-0 z-10 backdrop-blur-lg mb-[-200%] transition ease-in-out duration-75"></div>
+        <div className="popup w-screen bg-gray-400 opacity-60 absolute top-0 left-0 bottom-0 z-10 backdrop-blur-lg mb-[-180%] transition ease-in-out duration-75"></div>
       )}
     </section>
   );

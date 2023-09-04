@@ -50,8 +50,9 @@ const Form = () => {
 
   return (
     <form
-      className="font-roboto shadow-lg w-[90%] mx-auto bg-pink rounded-lg my-auto absolute bg-white z-30  py-3 pb-5 left-1/2 transform -translate-x-1/2 mt-2"
+      className="font-roboto shadow-lg w-[90%] mx-auto bg-pink rounded-lg my-auto absolute bg-white z-30  py-3 pb-5 mt-3"
       onSubmit={handleSubmit}
+      id="form-id"
     >
       <button
         className="close mb-2 px-3 cursor-pointer block ml-auto"
