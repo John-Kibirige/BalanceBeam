@@ -6,10 +6,14 @@ import errors from '../javascript/formErrors';
 import originalFormState from '../javascript/formStateReset';
 import { getTodayDate } from '../javascript/date';
 import { database, ref, push } from '../../firebasae';
+import { toggleFormDisplay } from '../redux/popup';
+import { useDispatch } from 'react-redux';
+import CloseIcon from '../svgs/CloseIcon';
 
 const Form = () => {
   const [formData, setFormData] = useState(originalFormState);
   const [formErrors, setFormErrors] = useState(originalFormState);
+  const dispatch = useDispatch();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -41,13 +45,20 @@ const Form = () => {
     if (filtered.length !== 0) return;
     push(ref(database, `balance-beam/${getTodayDate()}`), formData);
     // also update state to remove form
+    dispatch(toggleFormDisplay());
   };
 
   return (
     <form
-      className="font-roboto shadow-lg w-[95%] mx-auto bg-pink rounded-lg pb-2 mt-2"
+      className="font-roboto shadow-lg w-[90%] mx-auto bg-pink rounded-lg my-auto absolute bg-white z-30  py-3 pb-5 left-1/2 transform -translate-x-1/2 mt-2"
       onSubmit={handleSubmit}
     >
+      <button
+        className="close mb-2 px-3 cursor-pointer block ml-auto"
+        onClick={() => dispatch(toggleFormDisplay())}
+      >
+        <CloseIcon />
+      </button>
       <div className="article px-3">
         <Business formData={formData} handleChange={handleChange} />
         {formErrors.business && (

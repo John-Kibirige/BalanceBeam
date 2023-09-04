@@ -29,7 +29,7 @@ function App() {
 
   return (
     <>
-      <main className="px-4 py-4 text-pink-800">
+      <main className="px-4 py-4 text-pink-800 relative">
         <div className="nav flex justify-between gap-2 items-center mb-5 font-poppins">
           <div className="buttons w-full relative shadow-md pb">
             <button

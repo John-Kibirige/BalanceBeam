@@ -15,7 +15,7 @@ const Daily = ({ data }) => {
     dispatch(toggleFormDisplay());
   };
   return (
-    <section>
+    <section className={`${formDialog && 'pb-[600px]'}`}>
       <h1 className=" font-semibold text-lg text-center font-poppins mb-3">
         Today's balancing
       </h1>
@@ -25,14 +25,14 @@ const Daily = ({ data }) => {
         }
       })}
 
-      <button
-        className="add ml-auto block mr-4 mt-6 active:scale-110 transition duration-75"
-        onClick={handleClick}
-      >
-        <AddIcon />{' '}
+      <button className="add bg-pink-600" onClick={handleClick}>
+        <AddIcon />
       </button>
 
       {formDialog && <Form />}
+      {formDialog && (
+        <div className="popup w-screen bg-gray-400 opacity-60 absolute top-0 left-0 bottom-0 z-10 backdrop-blur-lg my-auto"></div>
+      )}
     </section>
   );
 };
