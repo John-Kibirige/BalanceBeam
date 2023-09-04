@@ -13,4 +13,18 @@ const categorizeData = (data, date) => {
   return Object.values(categorized);
 };
 
-export { categorizeData };
+const getTotalExpensesAndGross = (costs) => {
+  let totalExpenses = 0;
+  let totalGross = 0;
+
+  costs.forEach((cost) => {
+    let { shopping, wages, utilities, gross } = cost;
+
+    totalExpenses += parseInt(shopping) + parseInt(wages) + parseInt(utilities);
+    totalGross += parseInt(gross);
+  });
+
+  return [totalExpenses, totalGross];
+};
+
+export { categorizeData, getTotalExpensesAndGross };
