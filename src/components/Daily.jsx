@@ -4,14 +4,16 @@ import Form from './Form';
 import BusinessCard from './BusinessCard';
 import { categorizeData } from '../javascript/data';
 import { getTodayDate } from '../javascript/date';
+import { useSelector, useDispatch } from 'react-redux';
+import { toggleFormDisplay } from '../redux/popup';
 
 const Daily = ({ data }) => {
-  const [addBtnClicked, setAddBtnClicked] = useState(false);
-  const handleClick = () => setAddBtnClicked(!addBtnClicked);
-  const displayFormWindow = (state) => {
-    setAddBtnClicked(state);
-  };
+  const { formDialog } = useSelector((st) => st.popup);
+  const dispatch = useDispatch();
 
+  const handleClick = () => {
+    dispatch(toggleFormDisplay());
+  };
   return (
     <section>
       <h1 className=" font-semibold text-lg text-center font-poppins mb-3">
@@ -30,7 +32,7 @@ const Daily = ({ data }) => {
         <AddIcon />{' '}
       </button>
 
-      {addBtnClicked && <Form displayFormWindow={displayFormWindow} />}
+      {formDialog && <Form />}
     </section>
   );
 };

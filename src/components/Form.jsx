@@ -7,7 +7,7 @@ import originalFormState from '../javascript/formStateReset';
 import { getTodayDate } from '../javascript/date';
 import { database, ref, push } from '../../firebasae';
 
-const Form = ({ displayFormWindow }) => {
+const Form = () => {
   const [formData, setFormData] = useState(originalFormState);
   const [formErrors, setFormErrors] = useState(originalFormState);
 
@@ -40,7 +40,7 @@ const Form = ({ displayFormWindow }) => {
 
     if (filtered.length !== 0) return;
     push(ref(database, `balance-beam/${getTodayDate()}`), formData);
-    displayFormWindow(false);
+    // also update state to remove form
   };
 
   return (
