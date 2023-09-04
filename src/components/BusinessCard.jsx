@@ -3,7 +3,6 @@ import ExpensesRow from '../Card/ExpensesRow';
 import ExpensesHeader from '../Card/ExpensesHeader';
 import { getTotalExpensesAndGross } from '../javascript/data';
 import ComputedRow from '../Form/ComputedRow';
-import { parse } from 'postcss';
 
 const BusinessCard = ({ name, costs }) => {
   const [totalExpenses, totalGross] = getTotalExpensesAndGross(costs);
@@ -12,7 +11,7 @@ const BusinessCard = ({ name, costs }) => {
       <h3 className=" font-poppins text-cyan-700 font-semibold mb-1">{name}</h3>
       <table className=" font-roboto border border-pink-700 w-full">
         <thead>
-          <ExpensesHeader showDelete={true} />
+          <ExpensesHeader />
         </thead>
         <tbody>
           {costs.map((cost) => {
@@ -24,7 +23,6 @@ const BusinessCard = ({ name, costs }) => {
                 utilities={parseInt(cost.utilities).toLocaleString()}
                 gross={parseInt(cost.gross).toLocaleString()}
                 id={cost.id}
-                showDelete={true}
               />
             );
           })}

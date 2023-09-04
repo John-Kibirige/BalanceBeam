@@ -1,3 +1,5 @@
+import { getAllDatesForWeek } from './date';
+
 const categorizeData = (data, date) => {
   const categorized = {
     'Beautiful One': [],
@@ -13,6 +15,7 @@ const categorizeData = (data, date) => {
   return Object.values(categorized);
 };
 
+// total expenses and gross for a given business in a day
 const getTotalExpensesAndGross = (costs) => {
   let totalExpenses = 0;
   let totalGross = 0;
@@ -27,4 +30,15 @@ const getTotalExpensesAndGross = (costs) => {
   return [totalExpenses, totalGross];
 };
 
-export { categorizeData, getTotalExpensesAndGross };
+// for each date of the week depending on the day we are currently on,
+// return the different categories on each day
+
+const getEntireWeekCategories = (data) => {
+  const datesForWeek = getAllDatesForWeek();
+  return datesForWeek.map((date) => ({
+    date: new Date(date),
+    categories: categorizeData(data, date),
+  }));
+};
+
+export { categorizeData, getTotalExpensesAndGross, getEntireWeekCategories };
