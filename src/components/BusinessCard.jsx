@@ -4,9 +4,8 @@ import ExpensesHeader from '../Card/ExpensesHeader';
 
 const BusinessCard = ({ name, costs }) => {
   return (
-    <div>
+    <div className=' border mb-5'>
       <h3 className=" font-poppins text-sm text-cyan-700">{name}</h3>
-
       <table className=" font-roboto border border-pink-700 w-full">
         <thead>
           <ExpensesHeader />
@@ -27,6 +26,7 @@ const BusinessCard = ({ name, costs }) => {
         </tbody>
         <tfoot></tfoot>
       </table>
+    
     </div>
   );
 };

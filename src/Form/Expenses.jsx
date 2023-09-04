@@ -2,15 +2,15 @@ import React from 'react';
 
 const Expenses = ({ handleChange, formData, formErrors }) => {
   return (
-    <fieldset className="border  w-full px-2 mt-4 shadow-lg rounded-lg">
+    <fieldset className="border px-2 mt-4 shadow-lg rounded-lg w-100% ">
       <legend className="text-sm text-blue-700 px-1">Expenses</legend>
 
       <div className="expenses w- pt-4">
-        <div className="shopping flex justify-between gap-1">
+        <div className="shopping flex justify-between gap-1 ">
           <label htmlFor="shopping">Shopping: </label>
           <input
             type="text"
-            className="py-1 mb-3 focus:border-pink-800 focus:border-2 focus:outline-none focus:ring-0 border-pink-700"
+            className="py-1 mb-3 focus:border-pink-800 focus:border-2 focus:outline-none focus:ring-0 border-pink-700 w-[60%]"
             placeholder="Shopping (ugx)"
             id="shopping"
             name="shopping"
@@ -28,7 +28,7 @@ const Expenses = ({ handleChange, formData, formErrors }) => {
           <label htmlFor="wages">Wages: </label>
           <input
             type="text"
-            className="py-1 mb-3 focus:border-pink-800 focus:border-2 focus:outline-none focus:ring-0 border-pink-700"
+            className="py-1 mb-3 focus:border-pink-800 focus:border-2 focus:outline-none focus:ring-0 border-pink-700 w-[60%]"
             placeholder="Wages (ugx)"
             id="wages"
             name="wages"
@@ -46,7 +46,7 @@ const Expenses = ({ handleChange, formData, formErrors }) => {
           <label htmlFor="utilities">Utilities: </label>
           <input
             type="text"
-            className="py-1 mb-3 focus:border-pink-800 focus:border-2 focus:outline-none focus:ring-0 border-pink-700"
+            className="py-1 mb-3 focus:border-pink-800 focus:border-2 focus:outline-none focus:ring-0 border-pink-700 w-[60%]"
             placeholder="Utilities (ugx)"
             id="utilities"
             name="utilities"

@@ -48,7 +48,7 @@ const Form = ({ displayFormWindow }) => {
       className="font-roboto shadow-lg w-[95%] mx-auto bg-pink rounded-lg pb-2 mt-2"
       onSubmit={handleSubmit}
     >
-      <div className="article">
+      <div className="article px-3">
         <Business formData={formData} handleChange={handleChange} />
         {formErrors.business && (
           <p className="error text-sm text-red-500 mt-1">
@@ -56,7 +56,7 @@ const Form = ({ displayFormWindow }) => {
           </p>
         )}
       </div>
-      <div>
+      <div className="w-full px-3">
         <Expenses
           formData={formData}
           handleChange={handleChange}
@@ -66,7 +66,9 @@ const Form = ({ displayFormWindow }) => {
       <div>
         <Gross formData={formData} handleChange={handleChange} />
         {formErrors.gross && (
-          <p className="error text-sm text-red-500 mt-1">{formErrors.gross}</p>
+          <p className="error text-sm text-red-500 mt-1 mx-3">
+            {formErrors.gross}
+          </p>
         )}
       </div>
 

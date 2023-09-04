@@ -11,7 +11,6 @@ const Daily = ({ data }) => {
   const displayFormWindow = (state) => {
     setAddBtnClicked(state);
   };
-  console.log(categorizeData(data, getTodayDate()));
 
   return (
     <section>
@@ -25,7 +24,7 @@ const Daily = ({ data }) => {
       })}
 
       <button
-        className="add ml-auto block mr-4 mt-6 active:scale-110 transition ease-in duration-75"
+        className="add ml-auto block mr-4 mt-6 active:scale-110 transition duration-75"
         onClick={handleClick}
       >
         <AddIcon />{' '}
