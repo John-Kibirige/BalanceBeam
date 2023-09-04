@@ -2,7 +2,6 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   formDialog: false,
-  deleteDialog: false,
 };
 
 const popupSlice = createSlice({
@@ -12,12 +11,8 @@ const popupSlice = createSlice({
     toggleFormDisplay: (state) => {
       state.formDialog = !state.formDialog;
     },
-
-    toggleDeleteDisplay: (state) => {
-      state.deleteDialog = !state.deleteDialog;
-    },
   },
 });
 
-export const { toggleFormDisplay, toggleDeleteDisplay } = popupSlice.actions;
+export const { toggleFormDisplay } = popupSlice.actions;
 export default popupSlice;
