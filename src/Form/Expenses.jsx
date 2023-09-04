@@ -9,8 +9,8 @@ const Expenses = ({ handleChange, formData, formErrors }) => {
         <div className="shopping flex justify-between gap-1 ">
           <label htmlFor="shopping">Shopping: </label>
           <input
-            type="text"
-            className="py-1 mb-3 focus:border-pink-800 focus:border-2 focus:outline-none focus:ring-0 border-pink-700 w-[60%]"
+            type="number"
+            className="py-1 mb-3 focus:border-pink-800 focus:border-2 focus:outline-none focus:ring-0 border-pink-700 w-[60%] placeholder:text-sm"
             placeholder="Shopping (ugx)"
             id="shopping"
             name="shopping"
@@ -27,8 +27,8 @@ const Expenses = ({ handleChange, formData, formErrors }) => {
         <div className="wages flex justify-between">
           <label htmlFor="wages">Wages: </label>
           <input
-            type="text"
-            className="py-1 mb-3 focus:border-pink-800 focus:border-2 focus:outline-none focus:ring-0 border-pink-700 w-[60%]"
+            type="number"
+            className="py-1 mb-3 focus:border-pink-800 focus:border-2 focus:outline-none focus:ring-0 border-pink-700 w-[60%] placeholder:text-sm"
             placeholder="Wages (ugx)"
             id="wages"
             name="wages"
@@ -45,8 +45,8 @@ const Expenses = ({ handleChange, formData, formErrors }) => {
         <div className="utilities flex justify-between">
           <label htmlFor="utilities">Utilities: </label>
           <input
-            type="text"
-            className="py-1 mb-3 focus:border-pink-800 focus:border-2 focus:outline-none focus:ring-0 border-pink-700 w-[60%]"
+            type="number"
+            className="py-1 mb-3 focus:border-pink-800 focus:border-2 focus:outline-none focus:ring-0 border-pink-700 w-[60%] placeholder:text-sm"
             placeholder="Utilities (ugx)"
             id="utilities"
             name="utilities"
