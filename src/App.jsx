@@ -6,15 +6,16 @@ import Monthly from './components/Monthly';
 
 import animationPattern from './javascript/animations';
 import { onValue, ref, database } from '../firebasae';
+import { useDispatch, useSelector } from 'react-redux';
+import { changeCurrentWindow, changePreviousWindow } from './redux/navbar';
 
 function App() {
-  const [currentWindow, setCurrentWindow] = useState('daily');
-  const [previousWindow, setPreviousWindow] = useState('daily');
+  const dispatch = useDispatch();
+  const { currentWindow, previousWindow } = useSelector((st) => st.navbar);
+
   const handleClick = (e) => {
-    setCurrentWindow((prevState) => {
-      setPreviousWindow(prevState);
-      return e.target.name;
-    });
+    dispatch(changePreviousWindow(currentWindow));
+    dispatch(changeCurrentWindow(e.target.name));
   };
 
   const [data, setData] = useState({});
