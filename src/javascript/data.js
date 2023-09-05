@@ -27,7 +27,7 @@ const getTotalExpensesAndGross = (costs) => {
     totalGross += parseInt(gross);
   });
 
-  return [totalExpenses, totalGross];
+  return [totalExpenses, totalGross, totalGross - totalExpenses];
 };
 
 // for each date of the week depending on the day we are currently on,
@@ -41,4 +41,37 @@ const getEntireWeekCategories = (data) => {
   }));
 };
 
-export { categorizeData, getTotalExpensesAndGross, getEntireWeekCategories };
+// compute for total expenses, total gross and total net for the entire week
+const getTotalExpensesAndGrossForWeek = (data) => {
+  let entireWeekCategories = getEntireWeekCategories(data);
+  const calculated = entireWeekCategories.map((elem) => {
+    return elem.categories.map((el) => {
+      return getTotalExpensesAndGross(el);
+    });
+  });
+
+  const result = [
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0],
+  ];
+  calculated.map((elem) => {
+    for (let i = 0; i < 3; i++) {
+      result[i][0] += elem[i][0];
+      result[i][1] += elem[i][1];
+      result[i][2] += elem[i][2];
+    }
+  });
+
+  return result;
+};
+
+const availableBusinesses = ['One', 'Two', 'Three'];
+
+export {
+  categorizeData,
+  getTotalExpensesAndGross,
+  getEntireWeekCategories,
+  getTotalExpensesAndGrossForWeek,
+  availableBusinesses,
+};

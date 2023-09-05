@@ -15,11 +15,11 @@ const ComputedRow = ({ totalExpenses, totalGross, net }) => {
 
       <tbody>
         <tr>
-          <td className=" text-center">{totalExpenses.toLocaleString()}</td>
-          <td className="border-r border-l border-cyan-700 text-center">
+          <td className=" text-center px-2">{totalExpenses.toLocaleString()}</td>
+          <td className="border-r border-l border-cyan-700 text-center px-2">
             {totalGross.toLocaleString()}
           </td>
-          <td className=" text-center">{net.toLocaleString()}</td>
+          <td className=" text-center px-2">{net.toLocaleString()}</td>
         </tr>
       </tbody>
     </table>

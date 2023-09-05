@@ -14,11 +14,11 @@ const ExpensesRow = ({ shopping, wages, utilities, gross, id }) => {
   return (
     <>
       {' '}
-      <tr className=" border-b border-pink-700 text-pink-700">
-        <td className="px-1">{shopping}</td>
-        <td className="border-r border-l border-pink-700 px-1">{wages}</td>
-        <td className="border-r border-l border-pink-700 px-1">{utilities}</td>
-        <td className="border-r border-l border-pink-700 px-1">{gross}</td>
+      <tr className=" border-b border-pink-700 text-pink-700 text-center">
+        <td className="px-2">{shopping}</td>
+        <td className="border-r border-l border-pink-700 px-2">{wages}</td>
+        <td className="border-r border-l border-pink-700 px-2">{utilities}</td>
+        <td className="border-r border-l border-pink-700 px-2">{gross}</td>
         {currentWindow === 'daily' && (
           <td className=" flex justify-center items-center">
             <button className="del" onClick={handleDelete}>

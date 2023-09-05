@@ -4,8 +4,8 @@ import { formatDateToCustomString } from '../javascript/date';
 
 const ForADay = ({ dailyCategories, date }) => {
   return (
-    <section className="text-sm px-2 shadow-2xl py-4 my-3 bg-cyan-50 border-t border-cyan-100">
-      <h3 className="font-bold text-center font-poppins text-base text-blue-700">
+    <section className="text-sm px-2 shadow-2xl py-4 my-3 ">
+      <h3 className="font-bold text-center font-poppins text-base text-white bg-pink-700 py-1 rounded">
         {formatDateToCustomString(date)}
       </h3>
 
