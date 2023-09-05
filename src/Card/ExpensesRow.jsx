@@ -13,7 +13,6 @@ const ExpensesRow = ({ shopping, wages, utilities, gross, id }) => {
   const { currentWindow } = useSelector((st) => st.navbar);
   return (
     <>
-      {' '}
       <tr className=" border-b border-pink-700 text-pink-700 text-center">
         <td className="px-2">{shopping}</td>
         <td className="border-r border-l border-pink-700 px-2">{wages}</td>

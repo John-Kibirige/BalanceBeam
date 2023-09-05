@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react';
 import AddIcon from '../svgs/Add';
 import Form from './Form';
 import BusinessCard from './BusinessCard';
@@ -6,6 +5,7 @@ import { categorizeData } from '../javascript/data';
 import { getTodayDate } from '../javascript/date';
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleFormDisplay } from '../redux/popup';
+import { v4 as randomId } from 'uuid';
 
 const Daily = ({ data }) => {
   const { formDialog } = useSelector((st) => st.popup);
@@ -29,7 +29,13 @@ const Daily = ({ data }) => {
       </h1>
       {categorizeData(data, getTodayDate()).map((elem) => {
         if (elem.length !== 0) {
-          return <BusinessCard name={elem[0].business} costs={elem} />;
+          return (
+            <BusinessCard
+              name={elem[0].business}
+              costs={elem}
+              key={randomId()}
+            />
+          );
         }
       })}
 
