@@ -10,7 +10,6 @@ import ResultHead from '../week/ResultHead';
 import { v4 as randomId } from 'uuid';
 
 const Weekly = ({ data }) => {
-  console.log('the entire week categories ', getEntireWeekCategories(data));
   return (
     <section>
       <h1 className="font-semibold text-lg text-center font-poppins mb-3">

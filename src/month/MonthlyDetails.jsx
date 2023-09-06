@@ -16,8 +16,10 @@ const MonthlyDetails = ({ data }) => {
 
   return (
     <section>
-      <div className="title flex items-center justify-between mx-3 py-1 px-2 shadow-md">
-        <h1 className=" font-semibold text-xl text-teal-800">{year}</h1>
+      <div className="title flex items-center justify-between py-3 ">
+        <h1 className=" font-semibold text-2xl font-poppins text-teal-800">
+          {year}
+        </h1>
         <button className=" shadow-md active:scale-110" onClick={handleClick}>
           <BackIcon />
         </button>
