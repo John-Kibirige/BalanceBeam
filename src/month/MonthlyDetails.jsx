@@ -25,11 +25,11 @@ const MonthlyDetails = ({ data }) => {
         </button>
       </div>
 
-      <div className="all-months mt-6">
+      <section className="all-months mt-6">
         {getViableMonths(data, year).map((month) => (
           <MonthComp month={month} key={randomId()} data={data} />
         ))}
-      </div>
+      </section>
     </section>
   );
 };

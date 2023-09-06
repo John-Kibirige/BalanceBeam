@@ -10,9 +10,9 @@ const MonthComp = ({ month, data }) => {
   };
 
   return (
-    <section className="mb-3">
+    <section className="mb-3 bg-teal-50">
       <button
-        className=" flex justify-between w-full py-[6px] px-2 font-poppins font-semibold text-pink-700 shadow"
+        className=" flex justify-between w-full py-2 px-3 font-poppins font-semibold text-pink-700 shadow bg-gray-50"
         id={`${month}`}
         onClick={handleClick}
       >
