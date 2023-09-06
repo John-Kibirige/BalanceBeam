@@ -1,15 +1,2 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
-<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg fill="#000000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
-	 width="800px" height="800px" viewBox="0 0 63.55 63.551"
-	 xml:space="preserve">
-<g>
-	<path d="M53.875,22.097C53.875,9.914,43.96,0,31.775,0C19.59,0,9.676,9.914,9.676,22.097c0,11.889,9.444,21.59,21.223,22.056
-		v14.927L20.351,48.536c-0.455-0.456-1.195-0.456-1.651,0c-0.455,0.456-0.455,1.195,0,1.651L31.24,62.725l0,0l0.827,0.826
-		l0.825-0.826c0.002,0,0.002,0,0.002,0L45.43,50.188c0.456-0.456,0.456-1.195,0-1.651c-0.457-0.456-1.195-0.456-1.651,0
-		L33.235,59.079V44.125C44.741,43.363,53.875,33.787,53.875,22.097z M12.012,22.097c0-10.897,8.864-19.761,19.763-19.761
-		c10.899,0,19.764,8.864,19.764,19.761c0,10.406-8.087,18.935-18.304,19.688V23.318c0-0.645-0.523-1.168-1.168-1.168
-		c-0.644,0-1.167,0.523-1.167,1.168v18.493C20.41,41.352,12.012,32.699,12.012,22.097z"/>
-</g>
-</svg>
+<?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+<svg width="800px" height="800px" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--emojione-monotone" preserveAspectRatio="xMidYMid meet"><path d="M32 2C15.432 2 2 15.432 2 32s13.432 30 30 30s30-13.432 30-30S48.568 2 32 2zm0 47L16 33.695h10.857V15h10.285v18.695H48L32 49z" fill="#000000"></path></svg>

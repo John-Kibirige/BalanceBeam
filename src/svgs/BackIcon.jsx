@@ -7,7 +7,7 @@ const BackIcon = () => {
       width="24"
       height="24"
       fill="currentColor"
-      class="bi bi-arrow-left-square-fill"
+      className="bi bi-arrow-left-square-fill"
       viewBox="0 0 16 16"
     >
       {' '}

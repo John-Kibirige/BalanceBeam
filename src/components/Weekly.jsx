@@ -7,8 +7,10 @@ import {
 import ForADay from '../week/ForADay';
 import ResultRow from '../week/ResultRow';
 import ResultHead from '../week/ResultHead';
+import { v4 as randomId } from 'uuid';
 
 const Weekly = ({ data }) => {
+  console.log('the entire week categories ', getEntireWeekCategories(data));
   return (
     <section>
       <h1 className="font-semibold text-lg text-center font-poppins mb-3">
@@ -30,6 +32,7 @@ const Weekly = ({ data }) => {
                     gross={gross}
                     net={net}
                     business={availableBusinesses[index]}
+                    key={randomId()}
                   />
                 );
               })}
@@ -41,7 +44,15 @@ const Weekly = ({ data }) => {
         Breakdown
       </h2>
       {getEntireWeekCategories(data).map((elem) => {
-        return <ForADay date={elem.date} dailyCategories={elem.categories} />;
+        if (elem.categories.some((e) => e.length > 0)) {
+          return (
+            <ForADay
+              date={elem.date}
+              dailyCategories={elem.categories}
+              key={randomId()}
+            />
+          );
+        }
       })}
     </section>
   );

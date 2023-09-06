@@ -1,6 +1,7 @@
 import React from 'react';
 import BusinessCard from '../components/BusinessCard';
 import { formatDateToCustomString } from '../javascript/date';
+import { v4 as randomId } from 'uuid';
 
 const ForADay = ({ dailyCategories, date }) => {
   return (
@@ -17,6 +18,7 @@ const ForADay = ({ dailyCategories, date }) => {
                 name={elem[0].business}
                 costs={elem}
                 showDelete={false}
+                key={randomId()}
               />
             );
           }

@@ -6,7 +6,9 @@ import MonthlyDetails from '../month/MonthlyDetails';
 
 const Monthly = ({ data }) => {
   const { year } = useSelector((st) => st.year);
-  return <>{year ? <MonthlyDetails /> : <Introduction data={data} />}</>;
+  return (
+    <>{year ? <MonthlyDetails data={data} /> : <Introduction data={data} />}</>
+  );
 };
 
 export default Monthly;

@@ -13,9 +13,10 @@ const SelectYearForm = ({ data }) => {
 
   return (
     <div className="flex gap-3 flex-wrap justify-center">
-      {['2023', '2022', '2021', '2020', '2019', '2018'].map((yr) => {
+      {getPresentYears(data).map((yr) => {
         return (
           <button
+            key={yr}
             id={`${yr}`}
             className={`px-5 py-2 rounded shadow  transition ease-in-out duration-75 active:bg-pink-700 active:text-white ${
               year === yr ? 'bg-pink-700 text-white' : 'hover:bg-gray-100'

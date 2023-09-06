@@ -11,6 +11,7 @@ const ExpensesRow = ({ shopping, wages, utilities, gross, id }) => {
   };
   const { deleteDialog, itemToDelete } = useSelector((st) => st.delete);
   const { currentWindow } = useSelector((st) => st.navbar);
+
   return (
     <>
       <tr className=" border-b border-pink-700 text-pink-700 text-center">
@@ -26,7 +27,8 @@ const ExpensesRow = ({ shopping, wages, utilities, gross, id }) => {
           </td>
         )}
       </tr>
-      {itemToDelete === id && deleteDialog && <DeleteDialog />}
+
+      {deleteDialog && itemToDelete === id && <DeleteDialog />}
     </>
   );
 };

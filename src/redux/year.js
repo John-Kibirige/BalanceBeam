@@ -12,8 +12,8 @@ const yearSlice = createSlice({
       state.year = action.payload;
     },
     unSetYear: (state) => {
-        state.year = ''
-    }
+      state.year = '';
+    },
   },
 });
 
