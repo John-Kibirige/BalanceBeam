@@ -5,6 +5,9 @@ import { unSetYear } from '../redux/year';
 import { getViableMonths } from '../javascript/month';
 import MonthComp from './MonthComp';
 import { v4 as randomId } from 'uuid';
+import { getTotalExpensesAndGrossForYear } from '../javascript/year';
+
+import SummaryTable from '../components/SummaryTable';
 
 const MonthlyDetails = ({ data }) => {
   const { year } = useSelector((st) => st.year);
@@ -24,6 +27,13 @@ const MonthlyDetails = ({ data }) => {
           <BackIcon />
         </button>
       </div>
+
+      <SummaryTable
+        title={'Year - Summary'}
+        fun={getTotalExpensesAndGrossForYear}
+        year={year}
+        data={data}
+      />
 
       <section className="all-months mt-6">
         {getViableMonths(data, year).map((month) => (
