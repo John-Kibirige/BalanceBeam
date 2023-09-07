@@ -34,7 +34,7 @@ function App() {
         <div className="nav flex justify-between gap-2 items-center mb-5 font-poppins">
           <div className="buttons w-full relative shadow-md pb">
             <button
-              className={`btn w-[33.33%] py-[6px] active:bg-pink-300 transition ease-in-out duration-200 tracking-wider  ${
+              className={`btn w-[33.33%] py-[6px] sm:py-2 lg:py-3 active:bg-pink-300 transition ease-in-out duration-200 tracking-wider  ${
                 currentWindow === 'daily' ? 'bg-pink-300' : 'hover:bg-pink-200'
               }`}
               onClick={handleClick}
@@ -43,7 +43,7 @@ function App() {
               Daily
             </button>
             <button
-              className={`btn w-[33.33%] py-[6px] active:bg-pink-300 transition ease-in-out duration-200 tracking-wider ${
+              className={`btn w-[33.33%] py-[6px] sm:py-2 lg:py-3 active:bg-pink-300 transition ease-in-out duration-200 tracking-wider ${
                 currentWindow === 'weekly' ? 'bg-pink-300' : 'hover:bg-pink-200'
               }`}
               onClick={handleClick}
@@ -52,7 +52,7 @@ function App() {
               Weekly
             </button>
             <button
-              className={`btn w-[33.33%] py-[6px] active:bg-pink-300 transition ease-in-out duration-200 tracking-wider ${
+              className={`btn w-[33.33%] py-[6px] sm:py-2 lg:py-3 active:bg-pink-300 transition ease-in-out duration-200 tracking-wider ${
                 currentWindow === 'monthly'
                   ? 'bg-pink-300'
                   : 'hover:bg-pink-200'
