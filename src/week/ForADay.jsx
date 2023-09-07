@@ -5,7 +5,7 @@ import { v4 as randomId } from 'uuid';
 
 const ForADay = ({ dailyCategories, date }) => {
   return (
-    <section className="text-sm px-2 shadow-2xl py-4 my-3 ">
+    <section className="text-sm md:text-base px-2 shadow-2xl py-4 my-3 ">
       <h3 className="font-bold text-center font-poppins text-base text-white bg-pink-700 py-1 rounded sm:max-w-md mx-auto">
         {formatDateToCustomString(date)}
       </h3>

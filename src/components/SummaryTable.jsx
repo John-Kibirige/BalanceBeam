@@ -8,7 +8,7 @@ const SummaryTable = ({ title, fun, year, data }) => {
   return (
     <div className="article sm:w-[80%] md:w-[70%] lg:w-[60%] mx-auto">
       <div className="summary font-roboto">
-        <h2 className=" font-poppins text-cyan-800 text-lg text-center font-semibold tracking-wide">
+        <h2 className=" font-poppins text-pink-700 text-xl md:uppercase font-bold text-center tracking-wide">
           {title}
         </h2>
       </div>
