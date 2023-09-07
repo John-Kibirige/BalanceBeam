@@ -6,7 +6,7 @@ const AddIcon = () => {
 
   return (
     <svg
-      className={`w-7 h-7 shadow-md absolute right-0 mr-4 active:scale-110 transition duration-75 -mt-6 ${
+      className={`w-7 h-7 shadow-md absolute right-0 mr-4 active:scale-110 transition duration-75 sm:mr-8 ${
         !deleteDialog && 'z-20'
       }`}
       viewBox="0 0 24 24"

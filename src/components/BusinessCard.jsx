@@ -7,8 +7,10 @@ import ComputedRow from '../Form/ComputedRow';
 const BusinessCard = ({ name, costs }) => {
   const [totalExpenses, totalGross, net] = getTotalExpensesAndGross(costs);
   return (
-    <div className=" mb-5 px-1 py-3 rounded-lg shadow-xl relative">
-      <h3 className=" font-poppins text-cyan-700 font-semibold mb-1">{name}</h3>
+    <div className=" px-1 rounded-lg shadow-xl relative w-full ">
+      <h3 className=" font-poppins text-cyan-700 font-semibold mb-1 text-center">
+        {name}
+      </h3>
       <div className=" overflow-x-auto ">
         <table className=" font-roboto border border-pink-700 w-full">
           <thead>

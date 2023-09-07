@@ -27,19 +27,21 @@ const Daily = ({ data }) => {
       <h1 className=" font-semibold text-lg text-center font-poppins mb-3">
         Today's balancing
       </h1>
-      {categorizeData(data, getTodayDate()).map((elem) => {
-        if (elem.length !== 0) {
-          return (
-            <BusinessCard
-              name={elem[0].business}
-              costs={elem}
-              key={randomId()}
-            />
-          );
-        }
-      })}
+      <div className="article mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 sm:mx-6 gap-8 md:gap-4">
+        {categorizeData(data, getTodayDate()).map((elem) => {
+          if (elem.length !== 0) {
+            return (
+              <BusinessCard
+                name={elem[0].business}
+                costs={elem}
+                key={randomId()}
+              />
+            );
+          }
+        })}
+      </div>
 
-      <button className="add bg-pink-600" onClick={handleClick}>
+      <button className="add" onClick={handleClick}>
         <AddIcon />
       </button>
 
