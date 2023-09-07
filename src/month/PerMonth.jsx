@@ -23,7 +23,7 @@ const PerMonth = ({ month, data }) => {
           Summary
         </h2>
       </div>
-      <div className=" overflow-x-auto shadow-lg">
+      <div className=" overflow-x-auto shadow-lg sm:w-[80%] md:w-[70%] lg:w-[60%] mx-auto">
         <table className="border w-full mx-auto mt-3 bg-cyan-800 text-slate-100 font-roboto">
           <ResultHead />
           <tbody>

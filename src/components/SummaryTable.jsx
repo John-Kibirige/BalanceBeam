@@ -4,9 +4,9 @@ import ResultRow from '../week/ResultRow';
 import { v4 as randomId } from 'uuid';
 import { availableBusinesses } from '../javascript/data';
 
-const SummaryTable = ({ title, fun, year, data}) => {
+const SummaryTable = ({ title, fun, year, data }) => {
   return (
-    <div className="article">
+    <div className="article sm:w-[80%] md:w-[70%] lg:w-[60%] mx-auto">
       <div className="summary font-roboto">
         <h2 className=" font-poppins text-cyan-800 text-lg text-center font-semibold tracking-wide">
           {title}

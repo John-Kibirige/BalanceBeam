@@ -19,7 +19,7 @@ const MonthlyDetails = ({ data }) => {
 
   return (
     <section>
-      <div className="title flex items-center justify-between py-3 ">
+      <div className="title flex items-center justify-between py-3 sm:px-5 md:px-7 lg:px-10">
         <h1 className=" font-semibold text-2xl font-poppins text-teal-800">
           {year}
         </h1>
