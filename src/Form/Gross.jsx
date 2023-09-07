@@ -14,6 +14,7 @@ function Gross({ handleChange, formData }) {
         name="gross"
         value={formData.gross}
         onChange={handleChange}
+        autoComplete="off"
       />
     </div>
   );

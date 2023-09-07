@@ -8,7 +8,6 @@ const Business = ({ handleChange, formData }) => {
       </legend>
       <div className=" cursor-">
         <input
-          
           className=" focus:ring-0 transition ease-in mr-2 duration-75 cursor-pointer "
           type="radio"
           name="business"

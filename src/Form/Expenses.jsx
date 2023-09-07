@@ -16,6 +16,7 @@ const Expenses = ({ handleChange, formData, formErrors }) => {
             name="shopping"
             value={formData.shopping}
             onChange={handleChange}
+            autoComplete='off'
           />
         </div>
         {formErrors.shopping && (
@@ -34,6 +35,7 @@ const Expenses = ({ handleChange, formData, formErrors }) => {
             name="wages"
             value={formData.wages}
             onChange={handleChange}
+            autoComplete='off'
           />
         </div>
         {formErrors.wages && (
@@ -52,6 +54,7 @@ const Expenses = ({ handleChange, formData, formErrors }) => {
             name="utilities"
             value={formData.utilities}
             onChange={handleChange}
+            autoComplete='off'
           />
         </div>
         {formErrors.utilities && (
