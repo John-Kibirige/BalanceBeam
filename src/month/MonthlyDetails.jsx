@@ -23,7 +23,10 @@ const MonthlyDetails = ({ data }) => {
         <h1 className=" font-semibold text-2xl font-poppins text-teal-800">
           {year}
         </h1>
-        <button className=" shadow-md active:scale-110" onClick={handleClick}>
+        <button
+          className=" shadow-md active:scale-110 active:to-transparent"
+          onClick={handleClick}
+        >
           <BackIcon />
         </button>
       </div>
