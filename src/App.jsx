@@ -8,6 +8,8 @@ import animationPattern from './javascript/animations';
 import { onValue, ref, database } from '../firebasae';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeCurrentWindow, changePreviousWindow } from './redux/navbar';
+import SignUp from './components/auth/SignUp';
+import SignIn from './components/auth/SignIn';
 
 function App() {
   const dispatch = useDispatch();
@@ -30,54 +32,62 @@ function App() {
 
   return (
     <>
-      <main className="px-4 py-4 text-pink-800 relative">
-        <div className="nav flex justify-between gap-2 items-center mb-5 font-poppins">
-          <div className="buttons w-full relative shadow-md pb">
-            <button
-              className={`btn w-[33.33%] py-[6px] sm:py-2 lg:py-3 active:bg-pink-300 transition ease-in-out duration-200 tracking-wider   ${
-                currentWindow === 'daily' ? 'bg-pink-300' : 'hover:bg-pink-200'
-              }`}
-              onClick={handleClick}
-              name="daily"
-            >
-              Daily
-            </button>
-            <button
-              className={`btn w-[33.33%] py-[6px] sm:py-2 lg:py-3 active:bg-pink-300 transition ease-in-out duration-200 tracking-wider  ${
-                currentWindow === 'weekly' ? 'bg-pink-300' : 'hover:bg-pink-200'
-              }`}
-              onClick={handleClick}
-              name="weekly"
-            >
-              Weekly
-            </button>
-            <button
-              className={`btn w-[33.33%] py-[6px] sm:py-2 lg:py-3 active:bg-pink-300 transition ease-in-out duration-200 tracking-wider  ${
-                currentWindow === 'monthly'
-                  ? 'bg-pink-300'
-                  : 'hover:bg-pink-200'
-              }`}
-              onClick={handleClick}
-              name="monthly"
-            >
-              Monthly
-            </button>
-            <span
-              className={`line w-[33.33%] h-1 bg-pink-800 block absolute ${animationPattern(
-                currentWindow,
-                previousWindow
-              )}`}
-            ></span>
+      {true && <SignUp />}
+      {false && <SignIn />}
+      {false && (
+        <main className="px-4 py-4 text-pink-800 relative">
+          <div className="nav flex justify-between gap-2 items-center mb-5 font-poppins">
+            <div className="buttons w-full relative shadow-md pb">
+              <button
+                className={`btn w-[33.33%] py-[6px] sm:py-2 lg:py-3 active:bg-pink-300 transition ease-in-out duration-200 tracking-wider   ${
+                  currentWindow === 'daily'
+                    ? 'bg-pink-300'
+                    : 'hover:bg-pink-200'
+                }`}
+                onClick={handleClick}
+                name="daily"
+              >
+                Daily
+              </button>
+              <button
+                className={`btn w-[33.33%] py-[6px] sm:py-2 lg:py-3 active:bg-pink-300 transition ease-in-out duration-200 tracking-wider  ${
+                  currentWindow === 'weekly'
+                    ? 'bg-pink-300'
+                    : 'hover:bg-pink-200'
+                }`}
+                onClick={handleClick}
+                name="weekly"
+              >
+                Weekly
+              </button>
+              <button
+                className={`btn w-[33.33%] py-[6px] sm:py-2 lg:py-3 active:bg-pink-300 transition ease-in-out duration-200 tracking-wider  ${
+                  currentWindow === 'monthly'
+                    ? 'bg-pink-300'
+                    : 'hover:bg-pink-200'
+                }`}
+                onClick={handleClick}
+                name="monthly"
+              >
+                Monthly
+              </button>
+              <span
+                className={`line w-[33.33%] h-1 bg-pink-800 block absolute ${animationPattern(
+                  currentWindow,
+                  previousWindow
+                )}`}
+              ></span>
+            </div>
+            <div className="logo">
+              <EuroIcon />
+            </div>
           </div>
-          <div className="logo">
-            <EuroIcon />
-          </div>
-        </div>
 
-        {currentWindow === 'daily' && <Daily data={data} />}
-        {currentWindow === 'weekly' && <Weekly data={data} />}
-        {currentWindow === 'monthly' && <Monthly data={data} />}
-      </main>
+          {currentWindow === 'daily' && <Daily data={data} />}
+          {currentWindow === 'weekly' && <Weekly data={data} />}
+          {currentWindow === 'monthly' && <Monthly data={data} />}
+        </main>
+      )}
     </>
   );
 }
