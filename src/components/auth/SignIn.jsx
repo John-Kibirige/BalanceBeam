@@ -1,7 +1,17 @@
 import React, { useState } from 'react';
 
 const SignIn = () => {
-  const [formData, setFormData] = useState({});
+  const [formData, setFormData] = useState({ email: '', password: '' });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => {
+      return {
+        ...prev,
+        [name]: value,
+      };
+    });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -19,10 +29,13 @@ const SignIn = () => {
           </label>
           <input
             className='"py-1 border-pink-700 focus:border-pink-900 focus:border-2 focus:outline-none focus:ring-0 placeholder:text-sm w-full focus:bg-pink-50 font-poppins text-purple-900'
-            type="email"
+            type="text"
             id="email"
             placeholder="eg.email.com"
-            autoComplete='off'
+            autoComplete="off"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
           />
         </div>
         <div className="password mt-4">
@@ -35,6 +48,9 @@ const SignIn = () => {
             id="password"
             placeholder="eg.password"
             autoComplete="new-password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
           />
         </div>
 
