@@ -1,10 +1,24 @@
 import React, { useState } from 'react';
 
 const SignUp = () => {
-  const [formData, setFormData] = useState({});
+  const [formData, setFormData] = useState({
+    email: '',
+    password: '',
+    confirmPassword: '',
+  });
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => {
+      return {
+        ...prev,
+        [name]: value,
+      };
+    });
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(formData);
   };
   return (
     <section className="px-4 py-5 max-w-sm mx-auto">
@@ -23,6 +37,9 @@ const SignUp = () => {
             id="email"
             placeholder="eg.email.com"
             autoComplete="off"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
           />
         </div>
         <div className="password mt-4">
@@ -35,6 +52,9 @@ const SignUp = () => {
             id="password"
             placeholder="eg.password"
             autoComplete="new-password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
           />
         </div>
         <div className="confirm-password mt-4">
@@ -47,6 +67,9 @@ const SignUp = () => {
             id="password"
             placeholder="eg.password"
             autoComplete="new-password"
+            name="confirmPassword"
+            value={formData.confirmPassword}
+            onChange={handleChange}
           />
         </div>
         <div className="submit mt-6 w-1/2 mx-auto">
