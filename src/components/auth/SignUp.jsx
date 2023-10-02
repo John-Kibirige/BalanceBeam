@@ -7,7 +7,7 @@ const SignUp = () => {
     e.preventDefault();
   };
   return (
-    <section className="px-4 py-5">
+    <section className="px-4 py-5 max-w-sm mx-auto">
       <h1 className="font-bold text-2xl text-pink-600 text-center">
         Create a new account
       </h1>
@@ -22,6 +22,7 @@ const SignUp = () => {
             type="email"
             id="email"
             placeholder="eg.email.com"
+            autoComplete="off"
           />
         </div>
         <div className="password mt-4">
@@ -33,6 +34,7 @@ const SignUp = () => {
             type="password"
             id="password"
             placeholder="eg.password"
+            autoComplete="new-password"
           />
         </div>
         <div className="confirm-password mt-4">
@@ -44,6 +46,7 @@ const SignUp = () => {
             type="password"
             id="password"
             placeholder="eg.password"
+            autoComplete="new-password"
           />
         </div>
         <div className="submit mt-6 w-1/2 mx-auto">
