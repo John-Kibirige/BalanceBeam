@@ -21,5 +21,5 @@ const getFormErrors = (formData) => {
   }
   return response;
 };
-
+export { isValidEmail, isValidPassword };
 export default getFormErrors;

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import getFormErrors from '../../javascript/signUp';
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
@@ -30,15 +31,13 @@ const SignUp = () => {
       };
     });
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    const errorResponses = getFormErrors(formData);
-    setFormErrors({
-      ...errorResponses,
-    });
+    setFormErrors(getFormErrors(formData));
+    if (Object.values(formErrors).some((elem) => elem !== '')) return;
+    // createUserWithEmailAndPassword()
   };
-
-  console.log(formErrors);
 
   return (
     <section className="px-4 py-5 max-w-sm mx-auto">

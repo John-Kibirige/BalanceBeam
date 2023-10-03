@@ -1,7 +1,11 @@
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import React, { useState } from 'react';
-
+import { auth } from '../../firebase';
+import getSignInFormErrors from '../../javascript/signin';
+getSignInFormErrors
 const SignIn = () => {
   const [formData, setFormData] = useState({ email: '', password: '' });
+  const [formErrors, setFormErrors] = useState({ email: '', password: '' });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -11,11 +15,28 @@ const SignIn = () => {
         [name]: value,
       };
     });
+
+    setFormErrors((prev) => {
+      return {
+        ...prev,
+        [name]: '',
+      };
+    });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setFormErrors(getSignInFormErrors(formData));
+    if (Object.values(formErrors).some((elem) => elem !== '')) return;
+    signInWithEmailAndPassword(auth, formData.email, formData.password)
+      .then((userCredentials) => {
+        console.log(userCredentials);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
+
   return (
     <section className="px-4 py-5 max-w-sm mx-auto">
       <h1 className="font-bold text-2xl text-pink-600 text-center">
@@ -37,6 +58,11 @@ const SignIn = () => {
             value={formData.email}
             onChange={handleChange}
           />
+          {formErrors.email.length > 0 && (
+            <p className="error text-sm text-blue-600 mt-[2px]">
+              {formErrors.email}
+            </p>
+          )}
         </div>
         <div className="password mt-4">
           <label className=" block text-slate-600" htmlFor="password">
@@ -52,6 +78,11 @@ const SignIn = () => {
             value={formData.password}
             onChange={handleChange}
           />
+          {formErrors.password.length > 0 && (
+            <p className="error text-sm text-blue-600 mt-[2px]">
+              {formErrors.password}
+            </p>
+          )}
         </div>
 
         <div className="submit mt-6 w-1/2 mx-auto">
