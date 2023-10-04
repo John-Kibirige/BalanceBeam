@@ -2,6 +2,8 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import React, { useState } from 'react';
 import { auth } from '../../firebase';
 import getSignInFormErrors from '../../javascript/signin';
+import { useDispatch } from 'react-redux';
+import { setSignedInUpUser } from '../../redux/signedInUpUser';
 getSignInFormErrors;
 const SignIn = () => {
   const [formData, setFormData] = useState({ email: '', password: '' });
@@ -20,13 +22,18 @@ const SignIn = () => {
     setFormErrors(getSignInFormErrors(formData));
   };
 
+  const dispatch = useDispatch();
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    const cond1 = Object.values(formData).every((elem) => elem !== '');
+    const cond2 = Object.values(formErrors).some((elem) => elem !== '');
+    setFormErrors(getSignInFormErrors(formData));
+    if (!(cond1 && cond2)) return;
 
-    if (Object.values(formErrors).every((elem) => elem !== '')) return;
     signInWithEmailAndPassword(auth, formData.email, formData.password)
       .then((userCredentials) => {
-        console.log(userCredentials);
+        dispatch(setSignedInUpUser(userCredentials.user.email));
       })
       .catch((error) => {
         if (error.message.length > 0) {
