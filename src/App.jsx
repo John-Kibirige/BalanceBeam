@@ -14,6 +14,7 @@ import SignIn from './components/auth/SignIn';
 function App() {
   const dispatch = useDispatch();
   const { currentWindow, previousWindow } = useSelector((st) => st.navbar);
+  const { signedInUpUser } = useSelector((st) => st.signedInUpUser);
 
   const handleClick = (e) => {
     dispatch(changePreviousWindow(currentWindow));
@@ -29,6 +30,8 @@ function App() {
       }
     });
   }, []);
+
+  console.log('the signedupuser is ', signedInUpUser);
 
   return (
     <>

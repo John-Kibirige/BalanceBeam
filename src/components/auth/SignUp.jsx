@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import getFormErrors from '../../javascript/signUp';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebase';
+import { useDispatch } from 'react-redux';
+import { setSignedInUpUser } from '../../redux/signedInUpUser';
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
@@ -37,6 +39,8 @@ const SignUp = () => {
 
   const [firebaseError, setFirebaseError] = useState('');
 
+  const dispatch = useDispatch();
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const cond1 = Object.values(formData).every((elem) => elem !== '');
@@ -47,7 +51,7 @@ const SignUp = () => {
 
     createUserWithEmailAndPassword(auth, formData.email, formData.password)
       .then((userCredentials) => {
-        console.log(userCredentials.user);
+        dispatch(setSignedInUpUser(userCredentials.user.email));
       })
       .catch((error) => {
         if (error.message.length > 0)
