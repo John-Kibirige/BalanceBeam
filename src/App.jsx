@@ -11,6 +11,9 @@ import { changeCurrentWindow, changePreviousWindow } from './redux/navbar';
 import SignUp from './components/auth/SignUp';
 import SignIn from './components/auth/SignIn';
 import Splash from './components/Splash';
+import { setSignedInUpUser } from './redux/signedInUpUser';
+import { setSplashScreen } from './redux/screens';
+import Logout from './svgs/Logout';
 
 function App() {
   const dispatch = useDispatch();
@@ -35,7 +38,12 @@ function App() {
     });
   }, []);
 
-  console.log('the signed in user is ', signedInUpUser);
+  // handle logout clicked
+  const handleLogOut = () => {
+    dispatch(setSignedInUpUser(''));
+    dispatch(setSplashScreen(true));
+  };
+
   return (
     <>
       {splashScreen && <Splash />}
@@ -43,9 +51,17 @@ function App() {
       {signInScreen && <SignIn />}
       {signedInUpUser !== '' && (
         <main className="px-4 py-4 text-pink-800 relative">
-          <p className="text-sm text-right mx-3 mb-2 text-slate-500">
-            {signedInUpUser}
-          </p>
+          <div className="top mb-2 flex justify-between items-center">
+            <button
+              onClick={handleLogOut}
+              className="logout px-2 text-sm py-1 active:scale-105 cursor-pointer border border-slate-100 rounded-full hover:slate-100 transition-all duration-75 shadow-lg"
+            >
+              <Logout />
+            </button>
+            <p className="text-sm text-right text-slate-500">
+              {signedInUpUser}
+            </p>
+          </div>
           <div className="nav flex justify-between gap-2 items-center mb-5 font-poppins">
             <div className="buttons w-full relative shadow-md pb">
               <button
