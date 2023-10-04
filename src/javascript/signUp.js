@@ -13,7 +13,7 @@ const getFormErrors = (formData) => {
   if (!isValidEmail(email)) response.email = 'Please provide a valid email!';
 
   if (!isValidPassword(password)) {
-    response.password = 'Password must be at least 6 characters long!';
+    response.password = 'Password must be 6 characters or longer!';
   }
 
   if (!isMatchingPasswords(password, confirmPassword)) {

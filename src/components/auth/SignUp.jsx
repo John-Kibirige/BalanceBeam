@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import getFormErrors from '../../javascript/signUp';
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../../firebase';
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
@@ -30,13 +31,28 @@ const SignUp = () => {
         [name]: '',
       };
     });
+
+    setFormErrors(getFormErrors(formData));
   };
+
+  const [firebaseError, setFirebaseError] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const cond1 = Object.values(formData).every((elem) => elem !== '');
+    const cond2 = Object.values(formErrors).some((elem) => elem !== '');
     setFormErrors(getFormErrors(formData));
-    if (Object.values(formErrors).some((elem) => elem !== '')) return;
-    // createUserWithEmailAndPassword()
+    if (!(cond1 && cond2)) return;
+    setFormErrors({ email: '', password: '', confirmPassword: '' });
+
+    createUserWithEmailAndPassword(auth, formData.email, formData.password)
+      .then((userCredentials) => {
+        console.log(userCredentials.user);
+      })
+      .catch((error) => {
+        if (error.message.length > 0)
+          setFirebaseError('This email is already taken');
+      });
   };
 
   return (
@@ -111,6 +127,12 @@ const SignUp = () => {
             Sign Up
           </button>
         </div>
+
+        {firebaseError && (
+          <p className="firebase-error text-green-600 text-xl text-center mt-5">
+            {firebaseError}
+          </p>
+        )}
       </form>
     </section>
   );

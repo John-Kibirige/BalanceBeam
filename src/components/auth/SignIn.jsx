@@ -2,10 +2,11 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import React, { useState } from 'react';
 import { auth } from '../../firebase';
 import getSignInFormErrors from '../../javascript/signin';
-getSignInFormErrors
+getSignInFormErrors;
 const SignIn = () => {
   const [formData, setFormData] = useState({ email: '', password: '' });
   const [formErrors, setFormErrors] = useState({ email: '', password: '' });
+  const [firebaseError, setFirebaseError] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -16,24 +17,21 @@ const SignIn = () => {
       };
     });
 
-    setFormErrors((prev) => {
-      return {
-        ...prev,
-        [name]: '',
-      };
-    });
+    setFormErrors(getSignInFormErrors(formData));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setFormErrors(getSignInFormErrors(formData));
-    if (Object.values(formErrors).some((elem) => elem !== '')) return;
+
+    if (Object.values(formErrors).every((elem) => elem !== '')) return;
     signInWithEmailAndPassword(auth, formData.email, formData.password)
       .then((userCredentials) => {
         console.log(userCredentials);
       })
       .catch((error) => {
-        console.log(error);
+        if (error.message.length > 0) {
+          setFirebaseError('Invalid email or password');
+        }
       });
   };
 
@@ -90,6 +88,11 @@ const SignIn = () => {
             Log In
           </button>
         </div>
+        {firebaseError && (
+          <p className="error font-bold text-xl text-center mt-5 text-red-600">
+            {firebaseError}
+          </p>
+        )}
       </form>
     </section>
   );
