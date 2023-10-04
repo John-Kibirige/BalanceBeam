@@ -31,7 +31,7 @@ const Splash = () => {
           <EddyIcon />
         </div>
         <div className="buttons mt-10">
-          <div className="signup">
+          <div className="signup max-w-sm mx-auto ">
             <p className="text-center text-cyan-700 mb-1">
               You don't have an account?
             </p>
@@ -42,7 +42,7 @@ const Splash = () => {
               Sign Up
             </button>
           </div>
-          <div className="signin mt-6">
+          <div className="signin mt-6 max-w-sm mx-auto">
             <p className="text-center text-slate-500 mb-1">
               You have an account already?
             </p>

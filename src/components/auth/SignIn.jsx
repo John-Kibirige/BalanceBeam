@@ -40,6 +40,7 @@ const SignIn = () => {
     signInWithEmailAndPassword(auth, formData.email, formData.password)
       .then((userCredentials) => {
         dispatch(setSignedInUpUser(userCredentials.user.email));
+        dispatch(setSignInScreen(false));
       })
       .catch((error) => {
         if (error.message.length > 0) {

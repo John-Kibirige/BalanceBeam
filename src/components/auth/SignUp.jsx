@@ -58,6 +58,7 @@ const SignUp = () => {
     createUserWithEmailAndPassword(auth, formData.email, formData.password)
       .then((userCredentials) => {
         dispatch(setSignedInUpUser(userCredentials.user.email));
+        dispatch(setSignUpScreen(false));
       })
       .catch((error) => {
         if (error.message.length > 0)
@@ -67,7 +68,7 @@ const SignUp = () => {
 
   // handling the back arrow
   const handleBackArrowClicked = () => {
-    dispatch(setSignUpScreen(false));;
+    dispatch(setSignUpScreen(false));
     dispatch(setSplashScreen(true));
   };
 

@@ -35,13 +35,17 @@ function App() {
     });
   }, []);
 
+  console.log('the signed in user is ', signedInUpUser);
   return (
     <>
       {splashScreen && <Splash />}
       {signUpScreen && <SignUp />}
       {signInScreen && <SignIn />}
-      {false && (
+      {signedInUpUser !== '' && (
         <main className="px-4 py-4 text-pink-800 relative">
+          <p className="text-sm text-right mx-3 mb-2 text-slate-500">
+            {signedInUpUser}
+          </p>
           <div className="nav flex justify-between gap-2 items-center mb-5 font-poppins">
             <div className="buttons w-full relative shadow-md pb">
               <button
