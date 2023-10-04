@@ -4,6 +4,12 @@ import { auth } from '../../firebase';
 import getSignInFormErrors from '../../javascript/signin';
 import { useDispatch } from 'react-redux';
 import { setSignedInUpUser } from '../../redux/signedInUpUser';
+import BackArrow from '../../svgs/BackArrow';
+import {
+  setSignInScreen,
+  setSignUpScreen,
+  setSplashScreen,
+} from '../../redux/screens';
 getSignInFormErrors;
 const SignIn = () => {
   const [formData, setFormData] = useState({ email: '', password: '' });
@@ -42,8 +48,20 @@ const SignIn = () => {
       });
   };
 
+  // handleBackArrowClicked
+  const handleBackArrowClicked = () => {
+    dispatch(setSignInScreen(false));
+    dispatch(setSplashScreen(true));
+  };
+
   return (
     <section className="px-4 py-5 max-w-sm mx-auto">
+      <div
+        className="back-arrow-cont border w-fit px-[3px] py-[3px] rounded-full cursor-pointer shadow-lg border-slate-100 active:scale-110 transition-all duration-75 mb-6 "
+        onClick={handleBackArrowClicked}
+      >
+        <BackArrow />
+      </div>
       <h1 className="font-bold text-2xl text-pink-600 text-center">
         Login to your account
       </h1>

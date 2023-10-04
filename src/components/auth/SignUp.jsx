@@ -4,6 +4,12 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebase';
 import { useDispatch } from 'react-redux';
 import { setSignedInUpUser } from '../../redux/signedInUpUser';
+import BackArrow from '../../svgs/BackArrow';
+import {
+  setSignInScreen,
+  setSignUpScreen,
+  setSplashScreen,
+} from '../../redux/screens';
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
@@ -59,8 +65,21 @@ const SignUp = () => {
       });
   };
 
+  // handling the back arrow
+  const handleBackArrowClicked = () => {
+    dispatch(setSignUpScreen(false));;
+    dispatch(setSplashScreen(true));
+  };
+
   return (
     <section className="px-4 py-5 max-w-sm mx-auto">
+      <div
+        className="back-arrow-cont border w-fit px-[3px] py-[3px] rounded-full cursor-pointer shadow-lg border-slate-100 active:scale-110 transition-all duration-75 mb-6 "
+        onClick={handleBackArrowClicked}
+      >
+        <BackArrow />
+      </div>
+
       <h1 className="font-bold text-2xl text-pink-600 text-center">
         Create a new account
       </h1>

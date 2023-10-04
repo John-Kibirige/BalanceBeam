@@ -10,10 +10,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { changeCurrentWindow, changePreviousWindow } from './redux/navbar';
 import SignUp from './components/auth/SignUp';
 import SignIn from './components/auth/SignIn';
+import Splash from './components/Splash';
 
 function App() {
   const dispatch = useDispatch();
   const { currentWindow, previousWindow } = useSelector((st) => st.navbar);
+  const { signUpScreen, signInScreen, splashScreen, mainScreen } = useSelector(
+    (st) => st.screens
+  );
   const { signedInUpUser } = useSelector((st) => st.signedInUpUser);
 
   const handleClick = (e) => {
@@ -31,12 +35,11 @@ function App() {
     });
   }, []);
 
-  console.log('the signedupuser is ', signedInUpUser);
-
   return (
     <>
-      {true && <SignUp />}
-      {true && <SignIn />}
+      {splashScreen && <Splash />}
+      {signUpScreen && <SignUp />}
+      {signInScreen && <SignIn />}
       {false && (
         <main className="px-4 py-4 text-pink-800 relative">
           <div className="nav flex justify-between gap-2 items-center mb-5 font-poppins">
