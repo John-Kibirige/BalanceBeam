@@ -8,7 +8,6 @@ import animationPattern from './javascript/animations';
 import { onValue, ref, database } from './firebase';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeCurrentWindow, changePreviousWindow } from './redux/navbar';
-import SignUp from './components/auth/SignUp';
 import SignIn from './components/auth/SignIn';
 import Splash from './components/Splash';
 import { setSignedInUpUser } from './redux/signedInUpUser';
@@ -19,9 +18,7 @@ import { auth } from './firebase';
 function App() {
   const dispatch = useDispatch();
   const { currentWindow, previousWindow } = useSelector((st) => st.navbar);
-  const { signUpScreen, signInScreen, splashScreen, mainScreen } = useSelector(
-    (st) => st.screens
-  );
+  const { signInScreen, splashScreen } = useSelector((st) => st.screens);
   const { signedInUpUser } = useSelector((st) => st.signedInUpUser);
 
   const handleClick = (e) => {
@@ -45,13 +42,11 @@ function App() {
   const handleLogOut = () => {
     dispatch(setSignedInUpUser(''));
     dispatch(setSplashScreen(true));
-    // also we are to disconnect the user from firebase
   };
 
   return (
     <>
       {splashScreen && <Splash />}
-      {signUpScreen && <SignUp />}
       {signInScreen && <SignIn />}
       {signedInUpUser !== '' && (
         <main className="px-4 py-4 text-pink-800 relative">
