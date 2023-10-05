@@ -45,6 +45,7 @@ function App() {
   const handleLogOut = () => {
     dispatch(setSignedInUpUser(''));
     dispatch(setSplashScreen(true));
+    // also we are to disconnect the user from firebase
   };
 
   return (

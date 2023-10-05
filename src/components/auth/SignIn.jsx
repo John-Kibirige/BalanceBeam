@@ -6,8 +6,8 @@ import { useDispatch } from 'react-redux';
 import { setSignedInUpUser } from '../../redux/signedInUpUser';
 import BackArrow from '../../svgs/BackArrow';
 import {
+  setMainScreen,
   setSignInScreen,
-  setSignUpScreen,
   setSplashScreen,
 } from '../../redux/screens';
 getSignInFormErrors;
@@ -41,6 +41,7 @@ const SignIn = () => {
       .then((userCredentials) => {
         dispatch(setSignedInUpUser(userCredentials.user.email));
         dispatch(setSignInScreen(false));
+        dispatch(setMainScreen(true));
       })
       .catch((error) => {
         if (error.message.length > 0) {

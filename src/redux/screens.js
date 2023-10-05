@@ -1,11 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { auth } from '../firebase';
+
+console.log('the auth at the moment is ', auth.currentUser);
+
+const user = auth.currentUser;
 
 const initialState = {
-  splashScreen: true,
+  splashScreen: user ? false : true,
   signInScreen: false,
   signUpScreen: false,
-  mainScreen: false,
+  mainScreen: user ? true : false,
 };
+
+console.log('the initial state at the moment is ', initialState);
 
 const screensSlice = createSlice({
   name: 'screens',
