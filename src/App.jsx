@@ -5,7 +5,7 @@ import Weekly from './components/Weekly';
 import Monthly from './components/Monthly';
 
 import animationPattern from './javascript/animations';
-import { onValue, ref, database } from '../firebasae';
+import { onValue, ref, database } from './firebase';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeCurrentWindow, changePreviousWindow } from './redux/navbar';
 import SignUp from './components/auth/SignUp';
@@ -14,6 +14,7 @@ import Splash from './components/Splash';
 import { setSignedInUpUser } from './redux/signedInUpUser';
 import { setSplashScreen } from './redux/screens';
 import Logout from './svgs/Logout';
+import { auth } from './firebase';
 
 function App() {
   const dispatch = useDispatch();
@@ -30,13 +31,15 @@ function App() {
 
   const [data, setData] = useState({});
   useEffect(() => {
-    onValue(ref(database, 'balance-beam'), (snapshot) => {
-      if (snapshot.exists()) {
-        const dataRetrieved = snapshot.val() || {};
-        setData(dataRetrieved);
-      }
-    });
-  }, []);
+    if (auth.currentUser) {
+      onValue(ref(database, 'balance-beam'), (snapshot) => {
+        if (snapshot.exists()) {
+          const dataRetrieved = snapshot.val() || {};
+          setData(dataRetrieved);
+        }
+      });
+    }
+  }, [auth.currentUser]);
 
   // handle logout clicked
   const handleLogOut = () => {

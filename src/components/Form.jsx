@@ -5,7 +5,7 @@ import Gross from '../Form/Gross';
 import errors from '../javascript/formErrors';
 import originalFormState from '../javascript/formStateReset';
 import { getTodayDate } from '../javascript/date';
-import { database, ref, push } from '../../firebasae';
+import { database, ref, push } from '../firebase';
 import { toggleFormDisplay } from '../redux/popup';
 import { useDispatch } from 'react-redux';
 import CloseIcon from '../svgs/CloseIcon';

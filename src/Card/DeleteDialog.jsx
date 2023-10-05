@@ -1,5 +1,5 @@
 import React from 'react';
-import { ref, remove, database } from '../../firebasae';
+import { ref, remove, database } from '../firebase';
 import { getTodayDate } from '../javascript/date';
 import { useDispatch, useSelector } from 'react-redux';
 import { removeDeleteDialog } from '../redux/delete';
