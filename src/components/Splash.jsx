@@ -1,14 +1,10 @@
 import React from 'react';
 import EddyIcon from '../svgs/EddyIcon';
 import { useDispatch } from 'react-redux';
-import {
-  setSignInScreen,
-  setSplashScreen,
-} from '../redux/screens';
+import { setSignInScreen, setSplashScreen } from '../redux/screens';
 
 const Splash = () => {
   const dispatch = useDispatch();
-
 
   const handleLoginClicked = () => {
     dispatch(setSignInScreen(true));
